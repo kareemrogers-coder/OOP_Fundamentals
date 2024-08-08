@@ -63,4 +63,4 @@ ballroom_1.member_list = len(ballroom_1.names)
 #The following was used the verify the names were counted correctly:
     #print(ballroom_1.member_list)
 
-print(f"   Bring your guest count to a total of {len(ballroom_1.names)} guests.")
+print(f"   Updating your guest count to a total of {len(ballroom_1.names)} guests.")
