@@ -22,9 +22,15 @@ class Vehicle():
         self.model_type = model_type
         self.owner = owner
 
+    ##created a method to automate the new owner command.
+
+    def change_owner(self, new_owner):
+        self.owner = new_owner
+
 #### Step 2 once completed, create varible with instance attibutes:
 
-Jeep = Vehicle('CT252', 'Compass', 'Tim')
+jeep = Vehicle('CT252', 'Compass', 'Tim')
+
 
 # The following below were used to used the validity of the "Jeep" variable
 
@@ -33,11 +39,11 @@ Jeep = Vehicle('CT252', 'Compass', 'Tim')
 # print(Jeep.owner)
 # print(Jeep.reg_num)
 
-print(f" Welcome to the state BMV {Jeep.owner}, you are the current owner of a Jeep {Jeep.model_type} with a registration number {Jeep.reg_num}.")
+print(f" Welcome to the state BMV {jeep.owner}, you are the current owner of a Jeep {jeep.model_type} with a registration number {jeep.reg_num}.")
 
 d()
 
-print(f" Welcome back {Jeep.owner}, we recieved a change of owner request for vehicle under registration tag # {Jeep.reg_num}.......status will be updated in 5 days.")
+print(f" Welcome back {jeep.owner}, we recieved a change of owner request for vehicle under registration tag # {jeep.reg_num}.......status will be updated in 5 days.")
 
 #### Step 3 process an owner change from tim --> tom
 
@@ -45,19 +51,17 @@ d()
 d()
 
 print(f" ** 5 days later **")
+print(f"{jeep.owner}, your request has been approved.")
 
-print(f"{Jeep.owner}, your request has been approved.")
+## pulling in the method from above to change the owner.
 
-old_owner = "Tim"
-updated_owner = ("Tim")
-Jeep.owner = updated_owner.replace("Tim", "Tom")
+jeep.change_owner("Tom")
 
-#following below were used to test out new owener was processed:
-
-# print(new_owner)
+#following below were used to test out new owner was processed:
 
 # print(Jeep.owner)
 
 d()
-print(f"{old_owner}, your Jeep {Jeep.model_type} has been transfer the new owner {Jeep.owner}, as requested tag number {Jeep.reg_num} will remain the same....Thank you")
+
+print(f"{jeep.owner}, you are now the new owner of the Jeep {jeep.model_type} under tag number {jeep.reg_num}....Thank you")
 

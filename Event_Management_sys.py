@@ -15,52 +15,64 @@ from helper import d
 
 class Event():
 
-    def __init__(self, names, date, member_list): # have the "names" be a list to populate names.
-        self.names = names
+    def __init__(self, event_name, date, participant_list): # have the "names" be a list to populate names.
+        self.event_names = event_name
         self.date = date
-        self.member_list = member_list
+        self.participant_list = participant_list
+    
+    ### added the add_participant method
+    def add_participant(self, new_participant):
+        self.participant_list.append(new_participant)
+    
+    #getter 
+    ####added a method to count participant in the list.
+
+    def get_participant_count(self ):
+        return len(self.participant_list)
+            
 
 # Step 2 Create a varible to the Class create and customize instances within:
 
-ballroom_1 = Event(["Jim", "Tim", "Tom"], "Aug0824", "member_list")
+ballroom_1 = Event("Gala", "Aug0824", ["Jim", "Tim", "Tom"])
 
 # The following was used test the instance attribute, verfiy it was creating the correct output.
-    # print(ballroom_1)
-        # print(ballroom_1.names)
-            # print(len(ballroom_1.names))
+# print(ballroom_1)
+    # print(ballroom_1.participant_list)
+        # print(ballroom_1.get_participant_count())
+
 d()
 
 print(f"Welcome to Rogers Event Management system.") 
-print(f"Tonight event which is taking on {ballroom_1.date} will have an estimate guest count of {len(ballroom_1.names)}.")
-print(f"The Guest list contains {ballroom_1.names}.")
+print(f"Tonight event which is taking on {ballroom_1.date} will have an estimate guest count of {ballroom_1.get_participant_count}.")
+print(f"The Guest list contains {ballroom_1.participant_list}.")
 
 d()
 ###Step 3: Adding additonal guests.
 
 print(f"Request to add additonal guests to {ballroom_1.date} event was recieved.")
 
-# names = ["Jim", "Tim", "Tom"]
+ballroom_1.add_participant("Jill")
+ballroom_1.add_participant("Will")
+ballroom_1.add_participant("Tonya")
+ballroom_1.add_participant("Jessica")
+ballroom_1.add_participant("Fiona")
 
-ballroom_1.names.append("Jill")
-ballroom_1.names.append("Will")
-ballroom_1.names.append("Tonya")
-ballroom_1.names.append("Jessica")
-ballroom_1.names.append("Fiona")
 
-#The following was used the verify the names were added correctly:
-    #print(ballroom_1.names)
+# The following was used the verify the names were added correctly:
+    #print(ballroom_1.participant_list)
+
 d()
 d()
 
 print(f"Request has been approved, Please be advised your guestlist now contains the following names: ")
-print(F"   {ballroom_1.names}")
+print(F"{ballroom_1.participant_list}")
 
 
-### step 4: Implementing a count system to count the number of guests.
+# ### step 4: Implementing a count system to count the number of guests.
 
-ballroom_1.member_list = len(ballroom_1.names)
 
-#The following was used the verify the names were counted correctly:
-    #print(ballroom_1.member_list)
+# #The following was used the verify the names were counted correctly:
+    # print(ballroom_1.get_participant_count())
 
-print(f"   Updating your guest count to a total of {len(ballroom_1.names)} guests.")
+
+print(f"Updating your guest count to a total of {ballroom_1.get_participant_count()} guests.")
